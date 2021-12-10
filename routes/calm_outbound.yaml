@@ -1,0 +1,88 @@
+data:
+  - attributes:
+      created_at: '2021-12-09T15:39:59'
+      destination_override_endpoint: '*'
+      entries:
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: PathInfo
+                  operator: matches
+                  type: string
+                  values:
+                    - /cards
+          id: 1e61ffde-f985-4ed0-a3ee-200782d81ee9
+          id_selector: null
+          operation: ENRICH
+          operations: null
+          phase: REQUEST
+          public_token_generator: ALPHANUMERIC_SIX_T_FOUR
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.number
+          transformer_config_map: null
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: PathInfo
+                  operator: begins_with
+                  type: string
+                  values:
+                    - /cards
+          id: bab64a3d-9fa6-4002-829c-5a4fe7830983
+          id_selector: null
+          operation: REDACT
+          operations: null
+          phase: REQUEST
+          public_token_generator: UUID
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.account_number
+          transformer_config_map: null
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: Status
+                  operator: does_not_equal
+                  type: integer
+                  values:
+                    - '1234'
+          id: bc115633-be97-4bc7-85ee-6bb528758a47
+          id_selector: null
+          operation: REDACT
+          operations: null
+          phase: RESPONSE
+          public_token_generator: ALPHANUMERIC_SIX_T_FOUR
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.data.number
+          transformer_config_map: null
+          type: null
+      host_endpoint: calm\.sandbox\.verygoodsecurity\.app
+      id: 4ff41d9b-b1cb-4022-9a9f-3bf2fd876f78
+      ordinal: null
+      port: 80
+      protocol: http
+      source_endpoint: '*'
+      tags:
+        name: CALM Outbound
+        source: RouteContainer
+      updated_at: '2021-12-09T15:45:46'
+    id: 4ff41d9b-b1cb-4022-9a9f-3bf2fd876f78
+    type: rule_chain
+version: 1
