@@ -1,0 +1,38 @@
+version: "3.2"
+services:
+  alias-test-cards:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      VAULT_ID: "${VAULT_ID}"
+      ENVIRONMENT: "${ENVIRONMENT-sandbox}"
+      ALIAS_CARDS: "true"
+
+  one-time-aliases-enrollment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      VAULT_ID: "${VAULT_ID}"
+      VAULT_USERNAME: "${VAULT_USERNAME}"
+      VAULT_PASSWORD: "${VAULT_PASSWORD}"
+      ENVIRONMENT: "${ENVIRONMENT-sandbox}"
+      CALM_CLIENT_ID: "${CALM_CLIENT_ID}"
+      CALM_CLIENT_SECRET: "${CALM_CLIENT_SECRET}"
+      ENROLL_ALIASES: "true"
+
+  one-time-raw-enrollment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      ENVIRONMENT: "${ENVIRONMENT-sandbox}"
+      CALM_CLIENT_ID: "${CALM_CLIENT_ID}"
+      CALM_CLIENT_SECRET: "${CALM_CLIENT_SECRET}"
