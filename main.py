@@ -112,7 +112,7 @@ if __name__ == "__main__":
     vault_id = os.getenv('VAULT_ID')
     vault_username = os.getenv('VAULT_USERNAME')
     vault_password = os.getenv('VAULT_PASSWORD')
-    environment = os.getenv('ENVIRONMENT') if os.getenv('ENVIRONMENT') else 'sandbox'
+    environment = os.getenv('ENVIRONMENT', 'sandbox')
     calm_client_id = os.getenv('CALM_CLIENT_ID')
     calm_client_secret = os.getenv('CALM_CLIENT_SECRET')
     alias_cards = os.getenv('ALIAS_CARDS')

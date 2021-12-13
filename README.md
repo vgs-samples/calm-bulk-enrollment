@@ -2,6 +2,9 @@
 <p align="center"><b>CALM One-Time Enrollment Sample</b></p>
 
 
+[![CircleCI](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
+
+
 ## CALM One-Time Enrollment Sample
 
 Sample application showing an example of how to make initial bulk enrollment of cards to CALM API.
@@ -34,6 +37,7 @@ To send VGS aliases directly to CALM API you need to perform the following steps
 
 `csv/aliased_cards.csv` file should contain cardholder name, card number aliases from your existing vault, expiration month and expiration year of the card (you can adjust the sample code to contain billing address too according to our [API Reference](https://www.verygoodsecurity.com/docs/payment-optimization/calm/api/api-reference)).
 
+![Aliased cards](images/aliased_cards.png)
 ##### Testing on sample data 
 
 For testing purposes you can use new sandbox vault and redact testing card numbers data. To do it 
@@ -59,6 +63,9 @@ CALM_CLIENT_ID='<CALM_CLIENT_ID>' \
 CALM_CLIENT_SECRET='<CALM_CLIENT_SECRET>' \
 docker compose run one-time-aliases-enrollment
 ```
+As a result you will get aliased updated cards:
+
+![Updated cards](images/updated_cards.png)
 
 ### Enrollment of raw card data
 
@@ -71,6 +78,8 @@ docker compose run one-time-aliases-enrollment
 #### Prepare card data
 
 Add your card data to `csv/card_numbers.csv` file according to its format.
+
+![Raw cards](images/raw_cards.png)
 
 #### Perform One-time Enrollment
 

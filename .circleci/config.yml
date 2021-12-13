@@ -1,0 +1,24 @@
+version: 2.1
+
+job-defaults: &job-defaults
+  machine:
+    image: ubuntu-1604:202010-01
+    docker_layer_caching: true
+  working_directory: ~/app
+
+jobs:
+  build:
+    <<: *job-defaults
+    steps:
+      - checkout
+      - run:
+          name: Building image
+          command: docker-compose build
+
+workflows:
+  version: 2
+
+  build:
+   jobs:
+     - build:
+        context: circleci

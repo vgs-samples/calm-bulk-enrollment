@@ -51,14 +51,20 @@ data:
           transformer_config_map: null
         - classifiers: {}
           config:
-            condition: AND
+            condition: OR
             rules:
               - expression:
                   field: Status
-                  operator: does_not_equal
+                  operator: equals
                   type: integer
                   values:
-                    - '1234'
+                    - '200'
+              - expression:
+                  field: Status
+                  operator: equals
+                  type: integer
+                  values:
+                    - '201'
           id: bc115633-be97-4bc7-85ee-6bb528758a47
           id_selector: null
           operation: REDACT
