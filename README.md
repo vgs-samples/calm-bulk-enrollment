@@ -93,3 +93,7 @@ CALM_CLIENT_ID='<CALM_CLIENT_ID>' \
 CALM_CLIENT_SECRET='<CALM_CLIENT_SECRET>' \
 docker compose run one-time-raw-enrollment
 ```
+
+## Next Steps
+After enrolling your cards, you can get updated cards with synchronous [pull](https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater#pull-updates) or asynchronous [push](https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater#push-updates) model.
+
