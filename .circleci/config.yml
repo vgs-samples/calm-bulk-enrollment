@@ -14,11 +14,3 @@ jobs:
       - run:
           name: Building image
           command: docker-compose build
-
-workflows:
-  version: 2
-
-  build:
-   jobs:
-     - build:
-        context: circleci
