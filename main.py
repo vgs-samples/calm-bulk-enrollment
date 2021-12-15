@@ -74,7 +74,7 @@ def alias_raw_data():
 def enroll_data(aliased=False):
     file_name = "csv/aliased_cards.csv" if aliased else "csv/card_numbers.csv"
 
-    print(f'Starting one-time enrollment process from file "{file_name}".')
+    print(f'Starting bulk enrollment process from file "{file_name}".')
     with open(f'{file_name}') as cards_file:
         with open('csv/updated_cards.csv', 'w') as updated_cards_file:
             cards = csv.reader(cards_file)
@@ -104,7 +104,7 @@ def enroll_data(aliased=False):
                 updated_exp_year = data['exp_year']
                 updated.writerow([card_id, name, updated_number, updated_exp_month, updated_exp_year])
     print(
-        f'Successfully finish one-time enrollment process. '
+        f'Successfully finish bulk enrollment process. '
         f'See "csv/updated_cards.csv" for enrolled card with their corresponding ID\'s.')
 
 

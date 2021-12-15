@@ -1,11 +1,11 @@
 <p align="center"><a href="https://www.verygoodsecurity.com/"><img src="https://avatars0.githubusercontent.com/u/17788525" width="128" alt="VGS Logo"></a></p>
-<p align="center"><b>CALM One-Time Enrollment Sample</b></p>
+<p align="center"><b>CALM Bulk Enrollment Sample</b></p>
 
 
-[![CircleCI](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
+[![CircleCI](https://circleci.com/gh/vgs-samples/calm-bulk-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
 
 
-## CALM One-Time Enrollment Sample
+## CALM Bulk Enrollment Sample
 
 Sample application showing an example of how to make initial bulk enrollment of cards to CALM API.
 Learn more about [VGS Payment Optimization](https://www.verygoodsecurity.com/docs/payment-optimization) solution and 
@@ -13,7 +13,7 @@ Learn more about [VGS Payment Optimization](https://www.verygoodsecurity.com/doc
 
 Prior to running this sample, make sure to complete [CALM Onboarding](https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater/onboarding) process.
 
-When you perform one-time enrollment of cards to CALM API the vital part is the format of your card data. 
+When you perform bulk enrollment of cards to CALM API the vital part is the format of your card data. 
 If you have VGS aliases in your system, you need to configure [VGS Vault](https://dashboard.verygoodsecurity.com/) for using CALM API (typically for existing VGS customers) 
 and in the case of raw card data, you can send cards data directly (make sure to do it in PCI DSS compliant manner).
 
@@ -46,7 +46,7 @@ For testing purposes you can use new sandbox vault and redact testing card numbe
   - `docker compose build`
   - `VAULT_ID='<VAULT_ID>' docker compose run alias-test-cards`
 
-#### Perform One-time Enrollment
+#### Perform Bulk Enrollment
 
 To start enrollment process of cards in `csv/aliased_cards.csv` file use values from "Pre-requisites" step 2 and 3. In command below:
    1. Replace `<VAULT_ID>` with your test vault id.
@@ -61,7 +61,7 @@ VAULT_USERNAME='<VAULT_USERNAME>' \
 VAULT_PASSWORD='<VAULT_PASSWORD>' \
 CALM_CLIENT_ID='<CALM_CLIENT_ID>' \
 CALM_CLIENT_SECRET='<CALM_CLIENT_SECRET>' \
-docker compose run one-time-aliases-enrollment
+docker compose run bulk-aliases-enrollment
 ```
 As a result you will get aliased updated cards:
 
@@ -81,7 +81,7 @@ Add your card data to `csv/card_numbers.csv` file according to its format.
 
 ![Raw cards](images/raw_cards.png)
 
-#### Perform One-time Enrollment
+#### Perform Bulk Enrollment
 
 To start enrollment process of cards in `csv/card_numbers.csv` file use values from "Pre-requisites" step 2 and 
 replace `<CALM_CLIENT_ID>` and `<CALM_CLIENT_SECRET>` with API credentials client id and secret values.
@@ -91,7 +91,7 @@ Run:
 ```bash
 CALM_CLIENT_ID='<CALM_CLIENT_ID>' \
 CALM_CLIENT_SECRET='<CALM_CLIENT_SECRET>' \
-docker compose run one-time-raw-enrollment
+docker compose run bulk-raw-enrollment
 ```
 
 ## Next Steps

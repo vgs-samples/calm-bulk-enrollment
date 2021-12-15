@@ -11,7 +11,7 @@ services:
       ENVIRONMENT: "${ENVIRONMENT-sandbox}"
       ALIAS_CARDS: "true"
 
-  one-time-aliases-enrollment:
+  bulk-aliases-enrollment:
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,7 +26,7 @@ services:
       CALM_CLIENT_SECRET: "${CALM_CLIENT_SECRET}"
       ENROLL_ALIASES: "true"
 
-  one-time-raw-enrollment:
+  bulk-raw-enrollment:
     build:
       context: .
       dockerfile: Dockerfile
