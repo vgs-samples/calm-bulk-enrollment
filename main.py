@@ -104,7 +104,7 @@ def enroll_data(aliased=False):
                 updated_exp_year = data['exp_year']
                 updated.writerow([card_id, name, updated_number, updated_exp_month, updated_exp_year])
     print(
-        f'Successfully finish bulk enrollment process. '
+        f'Successfully finished bulk enrollment process. '
         f'See "csv/updated_cards.csv" for enrolled card with their corresponding ID\'s.')
 
 
