@@ -64,13 +64,15 @@ def alias_raw_data():
             aliased.writerow(header)
             for card in cards:
                 card_number = card[1]
-                print(f'Aliasing card number {card_number[6:]}******{card_number[:4]}')
+                hidden_card_number = f'{card_number[:6]}******{card_number[-4:]}'
+                print(f'Aliasing card number {hidden_card_number}')
                 try:
                     r = requests.post(f'https://{vault_id}.{environment}.verygoodproxy.com/post',
                                       json={'account_number': card_number}
                                       )
                     alias = json.loads(r.json()['data'])['account_number']
                     aliased.writerow([card[0], alias, card[2], card[3]])
+                    print(f'Card {hidden_card_number} was successfully aliased')
                 except requests.exceptions.RequestException as e:
                     print("Failed to alias card: ", e)
     print(f'Successfully aliased raw data in vault {vault_id}. See "csv/aliased_cards.csv" for created aliases.')
@@ -126,10 +128,13 @@ def get_error_messages(err: requests.exceptions.HTTPError) -> str:
                 print("Stopping cards processing.")
                 sys.exit(1)
             yield {
+                # see https://www.verygoodsecurity.com/docs/payment-optimization/calm/api/api-reference for list of error codes
                 'card-brand-not-supported': "Provided card brand is not supported. Please see https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater",
                 'validation-failed': f'Validation error: {details}',
                 'internal-server-error': f'Internal server error: {details}',
-                'invalid-payload': f'Invalid payload: {details}'
+                # error codes below should never happen
+                'invalid-payload': f'Invalid payload: {details}',
+                'unsupported-media-type': f'Media type is not supported: {details}'
             }[code]
     else:
         return f'Failed to enroll card. Status code {err.response.status_code}:, Message: {err.response.text}'
