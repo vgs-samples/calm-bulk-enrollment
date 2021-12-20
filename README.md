@@ -2,7 +2,7 @@
 <p align="center"><b>CALM One-Time Enrollment Sample</b></p>
 
 
-[![CircleCI](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
+[![CircleCI](https://circleci.com/gh/vgs-samples/calm-bulk-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
 
 
 ## CALM One-Time Enrollment Sample
