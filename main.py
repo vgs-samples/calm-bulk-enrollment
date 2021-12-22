@@ -35,7 +35,7 @@ def is_jwt_valid(token):
         return False
     try:
         jwt.decode(token, 'secret', algorithms='RS256',
-                   options={'verify_signature': False, 'verify_aud': False})
+                   options={'verify_signature': False, 'verify_aud': False, 'verify_exp': True})
     except (jwt.DecodeError, jwt.ExpiredSignatureError):
         return False
     return True
