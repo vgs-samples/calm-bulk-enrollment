@@ -132,6 +132,7 @@ def get_error_messages(err: requests.exceptions.HTTPError) -> str:
                 'card-brand-not-supported': "Provided card brand is not supported. Please see https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater",
                 'validation-failed': f'Validation error: {details}',
                 'internal-server-error': f'Internal server error: {details}',
+                'account-updater-not-supported': f'Account Updater is not supported for this card: {details}',
                 # error codes below should never happen
                 'invalid-payload': f'Invalid payload: {details}',
                 'unsupported-media-type': f'Media type is not supported: {details}'
