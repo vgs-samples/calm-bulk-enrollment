@@ -5,18 +5,6 @@
 [![CircleCI](https://circleci.com/gh/vgs-samples/calm-bulk-enrollment/tree/main.svg?style=svg)](https://circleci.com/gh/vgs-samples/calm-one-time-enrollment/tree/main)
 
 
-## CALM Bulk Enrollment Sample
-
-Sample application showing an example of how to make initial bulk enrollment of cards to CALM API.
-Learn more about [VGS Payment Optimization](https://www.verygoodsecurity.com/docs/payment-optimization) solution and 
-[CALM](https://www.verygoodsecurity.com/docs/payment-optimization/calm) in our official documentation.
-
-Prior to running this sample, make sure to complete [CALM Onboarding](https://www.verygoodsecurity.com/docs/payment-optimization/calm/account-updater/onboarding) process.
-
-When you perform bulk enrollment of cards to CALM API the vital part is the format of your card data. 
-If you have VGS aliases in your system, you need to configure [VGS Vault](https://dashboard.verygoodsecurity.com/) for using CALM API (typically for existing VGS customers) 
-and in the case of raw card data, you can send cards data directly (make sure to do it in PCI DSS compliant manner).
-
 ### Environment
 
 Sample is running on Sandbox by default. In order to run on Live environment specify value of `live` for `ENVIRONMENT` environment variable.
@@ -35,7 +23,7 @@ To send VGS aliases directly to CALM API you need to perform the following steps
 
 #### Prepare card data
 
-`csv/aliased_cards.csv` file should contain cardholder name, card number aliases from your existing vault, expiration month and expiration year of the card (you can adjust the sample code to contain billing address too according to our [API Reference](https://www.verygoodsecurity.com/docs/payment-optimization/calm/api/api-reference)).
+`csv/aliased_cards.csv` file should contain cardholder name, card number aliases from your existing vault, expiration month and expiration year of the card (you can adjust the sample code to contain billing address too according to our [API Reference](https://www.verygoodsecurity.com/docs/account-updater/api)).
 
 ![Aliased cards](images/aliased_cards.png)
 ##### Testing on sample data 
